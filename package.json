@@ -1,0 +1,16 @@
+{
+  "name": "pathNode",
+  "version": "1.0.0",
+  "description": "path recruitment test in Node.js",
+  "main": "index.js",
+  "repository": "https://github.com/flashnode/pathNode.git",
+  "author": "Flashnode",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "jest": "^26.0.1"
+  },
+  "scripts": {
+    "test": "jest"
+  }
+}
