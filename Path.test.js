@@ -45,3 +45,8 @@ test("Tests if the separator can be multiple characters", () => {
   path.cd("-LOL-cd");
   expect(path.getCurrentPath()).toBe("-LOL-cd");
 });
+
+test("Tests if the path contains illegal characters", () => {
+  let path = new Path("/");
+  expect(() => path.cd("../illegal_path3")).toThrow();
+});

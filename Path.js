@@ -12,6 +12,11 @@ Path.prototype.getCurrentPath = function getCurrentPath() {
 };
 
 Path.prototype.cd = function cd(path) {
+  // Check if path contains only English alphabets, if not, throw error
+  const cleaned_path = path.replaceAll(".", "").replaceAll(this.separator, "");
+  if (/[^a-zA-Z]/.test(cleaned_path)) {
+    throw new Error("Path contains invalid characters");
+  }
   if (path.startsWith(this.separator)) {
     this.currentPath = path;
   } else if (!path.includes(this.separator)) {
@@ -27,6 +32,10 @@ Path.prototype.cd = function cd(path) {
       }
     });
     this.currentPath = current_path.join("/");
+  }
+
+  if (this.currentPath.endsWith("/")) {
+    this.currentPath = this.currentPath.slice(0, -1);
   }
 };
 
