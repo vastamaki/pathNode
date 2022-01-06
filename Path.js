@@ -20,7 +20,7 @@ Path.prototype.cd = function cd(path) {
   if (path.startsWith(this.separator)) {
     this.currentPath = path;
   } else if (!path.includes(this.separator)) {
-    this.currentPath = `${this.currentPath}/${path}`;
+    this.currentPath = `${this.currentPath}${this.separator}${path}`;
   } else {
     let current_path = this.currentPath.split(this.separator);
     const requested_path = path.split(this.separator);

@@ -50,3 +50,9 @@ test("Tests if the path contains illegal characters", () => {
   let path = new Path("/");
   expect(() => path.cd("../illegal_path3")).toThrow();
 });
+
+test("Tests if path contains hardcoded separator after child change", () => {
+  let path = new Path("\\test\\path", "\\");
+  path.cd("folder");
+  expect(path.getCurrentPath()).toBe("\\test\\path\\folder");
+});
